@@ -8,7 +8,7 @@ interface IEnvVars {
 
 const envVarsSchema = joi
   .object({
-    PORT: joi.number().default(3000),
+    PORT: joi.number().required(),
     DATABASE_URL: joi.string().required(),
   })
   .unknown(true); // Allow unknown properties
