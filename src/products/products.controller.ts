@@ -26,12 +26,12 @@ export class ProductsController {
   }
 
   @MessagePattern({ cmd: 'update_product' })
-  update(@Payload() updateProductDto: UpdateProductDto) {
+  patchOne(@Payload() updateProductDto: UpdateProductDto) {
     return this.productsService.update(updateProductDto.id, updateProductDto);
   }
 
   @MessagePattern({ cmd: 'delete_product' })
-  remove(@Payload('id') id: string) {
+  deleteOne(@Payload('id') id: string) {
     return this.productsService.remove(+id);
   }
 }
